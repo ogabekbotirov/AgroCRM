@@ -98,17 +98,17 @@ export default function Inventory({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="flex flex-col flex-1 pb-24">
-      <div className="flex-1 flex flex-col px-5 pt-6 pb-6 overflow-y-auto">
-        <div className="flex items-center justify-between mb-6">
+      <div className="flex-1 flex flex-col px-5 pt-6 pb-6">
+        <div className="flex items-center justify-between mb-6 shrink-0">
           <button onClick={onBack} className="w-fit">
             <ArrowLeft size={24} className="text-gray-900" />
           </button>
         </div>
 
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">{t("inv_title")}</h1>
-        <p className="text-sm text-gray-500 mb-4">{t("inv_subtitle")}</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1 shrink-0">{t("inv_title")}</h1>
+        <p className="text-sm text-gray-500 mb-4 shrink-0">{t("inv_subtitle")}</p>
 
-        <div className="flex bg-gray-100 rounded-xl p-1 mb-5">
+        <div className="flex bg-gray-100 rounded-xl p-1 mb-5 shrink-0">
           <button
             onClick={() => setActiveTab("feed")}
             className={`flex-1 py-2.5 text-sm font-bold rounded-lg transition-colors flex items-center justify-center gap-1.5 ${
@@ -130,7 +130,7 @@ export default function Inventory({ onBack }: { onBack: () => void }) {
         </div>
 
         {activeTab === "feed" ? (
-          <div className="space-y-3 flex-1 overflow-y-auto">
+          <div className="space-y-3 flex-1 overflow-y-auto min-h-0">
             {feedItems.map((item, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-2xl p-4">
                 <div className="flex items-center justify-between mb-2 min-w-0">
@@ -172,7 +172,7 @@ export default function Inventory({ onBack }: { onBack: () => void }) {
             </div>
           </div>
         ) : (
-          <div className="space-y-3 flex-1 overflow-y-auto">
+          <div className="space-y-3 flex-1 overflow-y-auto min-h-0">
             {medicineItems.map((item, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-2xl p-4">
                 <div className="flex items-center justify-between mb-2">

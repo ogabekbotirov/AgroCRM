@@ -15,8 +15,8 @@ export default function LanguageScreen({ onComplete }: { onComplete: (lang: stri
   const [selected, setSelected] = useState("uz");
 
   return (
-    <div className="flex flex-col flex-1">
-      <div className="flex-1 flex flex-col px-5 pt-6 pb-6 overflow-y-auto">
+    <div className="flex flex-col flex-1 relative">
+      <div className="flex-1 flex flex-col px-5 pt-6 pb-32 overflow-y-auto">
         <Sprout size={40} className="text-green-800 mb-6" strokeWidth={2} />
         <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
           {t("lang_title")}
@@ -55,7 +55,7 @@ export default function LanguageScreen({ onComplete }: { onComplete: (lang: stri
         </div>
       </div>
 
-      <div className="absolute bottom-0 w-full p-6">
+      <div className="absolute bottom-0 w-full px-5 pb-6 pt-6">
         <button
           onClick={() => onComplete(selected)}
           className="w-full bg-green-800 text-white font-bold text-base py-4 rounded-xl active:bg-green-900 transition-colors active:scale-[0.98]"

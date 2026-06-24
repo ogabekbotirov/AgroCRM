@@ -25,10 +25,10 @@ export default function Dashboard({ onNavigate }: { onNavigate: (screen: string)
   const [showLangMenu, setShowLangMenu] = useState(false);
 
   const quickLogs = [
-    { icon: Droplets, labelKey: "dash_milk", color: "text-green-700", bg: "bg-green-50" },
-    { icon: Egg, labelKey: "dash_eggs", color: "text-amber-600", bg: "bg-amber-50" },
-    { icon: DollarSign, labelKey: "dash_expense", color: "text-red-500", bg: "bg-red-50" },
-    { icon: Wheat, labelKey: "dash_feed", color: "text-yellow-600", bg: "bg-yellow-50" },
+    { icon: Droplets, labelKey: "dash_milk",    color: "text-green-700",  bg: "bg-green-50",  nav: "add-record"  },
+    { icon: Egg,      labelKey: "dash_eggs",    color: "text-amber-600",  bg: "bg-amber-50",  nav: "add-record"  },
+    { icon: DollarSign, labelKey: "dash_expense", color: "text-red-500",  bg: "bg-red-50",    nav: "add-income"  },
+    { icon: Wheat,    labelKey: "dash_feed",    color: "text-yellow-600", bg: "bg-yellow-50", nav: "inventory"   },
   ];
 
   const activities = [
@@ -95,7 +95,10 @@ export default function Dashboard({ onNavigate }: { onNavigate: (screen: string)
           </div>
         </div>
 
-        <div className="bg-green-800 rounded-3xl p-5 text-white">
+        <button
+          onClick={() => onNavigate("analytics")}
+          className="w-full bg-green-800 rounded-3xl p-5 text-white text-left"
+        >
           <div className="flex items-center justify-between mb-4 min-w-0">
             <span className="text-sm font-bold opacity-90 truncate">{t("dash_farm_performing")}</span>
             <span className="text-xs opacity-70 shrink-0">{t("dash_this_week")}</span>
@@ -123,9 +126,9 @@ export default function Dashboard({ onNavigate }: { onNavigate: (screen: string)
               <span className="text-xs opacity-80 truncate block">UZS</span>
             </div>
           </div>
-        </div>
+        </button>
 
-        <button className="w-full flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3.5 min-w-0">
+        <button onClick={() => onNavigate("alerts")} className="w-full flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3.5 min-w-0">
           <div className="flex items-center gap-3 min-w-0 flex-1">
             <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
               <Bell size={16} className="text-red-500" />
@@ -149,7 +152,8 @@ export default function Dashboard({ onNavigate }: { onNavigate: (screen: string)
               return (
                 <button
                   key={item.labelKey}
-                  className="flex flex-col items-center gap-2 p-3 rounded-2xl bg-white border border-gray-100 min-w-0"
+                  onClick={() => onNavigate(item.nav)}
+                  className="flex flex-col items-center gap-2 p-3 rounded-2xl bg-white border border-gray-100 min-w-0 active:scale-95 transition-transform"
                 >
                   <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center shrink-0`}>
                     <Icon size={20} className={item.color} />

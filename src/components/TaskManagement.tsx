@@ -54,20 +54,20 @@ export default function TaskManagement({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="flex flex-col flex-1 pb-24">
-      <div className="flex-1 flex flex-col px-5 pt-6 pb-6 overflow-y-auto">
-        <div className="flex items-center justify-between mb-6">
+      <div className="flex-1 flex flex-col px-5 pt-6 pb-6">
+        <div className="flex items-center justify-between mb-6 shrink-0">
           <button onClick={onBack} className="w-fit">
             <ArrowLeft size={24} className="text-gray-900" />
           </button>
-          <button className="bg-green-800 text-white p-2.5 rounded-xl">
+          <button className="bg-green-800 text-white p-2.5 rounded-xl shrink-0">
             <Plus size={20} />
           </button>
         </div>
 
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">{t("task_title")}</h1>
-        <p className="text-sm text-gray-500 mb-5">{t("task_subtitle")}</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1 shrink-0">{t("task_title")}</h1>
+        <p className="text-sm text-gray-500 mb-5 shrink-0">{t("task_subtitle")}</p>
 
-        <div className="flex bg-gray-100 rounded-xl p-1 mb-5">
+        <div className="flex bg-gray-100 rounded-xl p-1 mb-5 shrink-0">
           <button
             onClick={() => setActiveView("tasks")}
             className={`flex-1 py-2.5 text-sm font-bold rounded-lg transition-colors ${
@@ -87,7 +87,7 @@ export default function TaskManagement({ onBack }: { onBack: () => void }) {
         </div>
 
         {activeView === "tasks" ? (
-          <div className="space-y-2 flex-1 overflow-y-auto">
+          <div className="space-y-2 flex-1 overflow-y-auto min-h-0">
             {tasks.map((task) => (
               <button
                 key={task.id}
@@ -125,7 +125,7 @@ export default function TaskManagement({ onBack }: { onBack: () => void }) {
             ))}
           </div>
         ) : (
-          <div className="space-y-3 flex-1 overflow-y-auto">
+          <div className="space-y-3 flex-1 overflow-y-auto min-h-0">
             {workers.map((worker, i) => (
               <div
                 key={i}

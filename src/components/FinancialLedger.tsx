@@ -45,21 +45,21 @@ export default function FinancialLedger({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="flex flex-col flex-1 pb-24">
-      <div className="flex-1 flex flex-col px-5 pt-6 pb-6 overflow-y-auto">
-        <div className="flex items-center justify-between mb-6">
+      <div className="flex-1 flex flex-col px-5 pt-6 pb-6">
+        <div className="flex items-center justify-between mb-6 shrink-0">
           <button onClick={onBack} className="w-fit">
             <ArrowLeft size={24} className="text-gray-900" />
           </button>
-          <button className="flex items-center gap-1.5 bg-white border border-gray-100 rounded-xl px-3 py-2">
+          <button className="flex items-center gap-1.5 bg-white border border-gray-100 rounded-xl px-3 py-2 shrink-0">
             <Download size={14} className="text-gray-700" />
             <span className="text-xs font-bold text-gray-700">{t("fin_export")}</span>
           </button>
         </div>
 
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">{t("fin_title")}</h1>
-        <p className="text-sm text-gray-500 mb-5">{t("fin_subtitle")}</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1 shrink-0">{t("fin_title")}</h1>
+        <p className="text-sm text-gray-500 mb-5 shrink-0">{t("fin_subtitle")}</p>
 
-        <div className="bg-green-800 rounded-3xl p-5 text-white mb-5">
+        <div className="bg-green-800 rounded-3xl p-5 text-white mb-5 shrink-0">
           <p className="text-xs font-bold opacity-80 mb-1">{t("fin_net_profit")}</p>
           <p className="text-3xl font-bold">{(totalIncome - totalExpense).toLocaleString()} UZS</p>
           <div className="flex gap-4 mt-3 pt-3 border-t border-white/20">
@@ -80,7 +80,7 @@ export default function FinancialLedger({ onBack }: { onBack: () => void }) {
           </div>
         </div>
 
-        <div className="bg-white border border-gray-100 rounded-2xl p-4 mb-5">
+        <div className="bg-white border border-gray-100 rounded-2xl p-4 mb-5 shrink-0">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-bold text-gray-900">{t("fin_monthly")}</h3>
             <span className="text-xs text-gray-400">{t("fin_in_million")}</span>
@@ -114,7 +114,7 @@ export default function FinancialLedger({ onBack }: { onBack: () => void }) {
           </div>
         </div>
 
-        <div className="flex bg-gray-100 rounded-xl p-1 mb-4">
+        <div className="flex bg-gray-100 rounded-xl p-1 mb-4 shrink-0">
           {(["all", "income", "expense"] as const).map((f) => (
             <button
               key={f}
@@ -128,7 +128,7 @@ export default function FinancialLedger({ onBack }: { onBack: () => void }) {
           ))}
         </div>
 
-        <div className="space-y-2 flex-1 overflow-y-auto">
+        <div className="space-y-2 flex-1 overflow-y-auto min-h-0">
           {filtered.map((tx, i) => {
             const Icon = tx.icon;
             const isIncome = tx.type === "income";

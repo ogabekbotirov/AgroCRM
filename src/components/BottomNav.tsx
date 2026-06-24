@@ -47,10 +47,17 @@ export default function BottomNav({
               onClick={() => onTabChange(tab.key)}
               className="flex flex-col items-center gap-0.5 min-w-0"
             >
-              <Icon
-                size={22}
-                className={isActive ? "text-green-800" : "text-gray-400"}
-              />
+              <div className="relative">
+                <Icon
+                  size={22}
+                  className={isActive ? "text-green-800" : "text-gray-400"}
+                />
+                {tab.key === "alerts" && (
+                  <span className="absolute -top-1 -right-1.5 w-4 h-4 bg-red-500 rounded-full text-white text-[8px] font-bold flex items-center justify-center leading-none">
+                    2
+                  </span>
+                )}
+              </div>
               <span
                 className={`text-[10px] font-bold ${
                   isActive ? "text-green-800" : "text-gray-400"

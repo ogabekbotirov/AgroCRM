@@ -182,20 +182,20 @@ export default function AnimalManagement({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="flex flex-col flex-1 pb-24">
-      <div className="flex-1 flex flex-col px-5 pt-6 pb-6 overflow-y-auto">
-        <div className="flex items-center justify-between mb-6">
+      <div className="flex-1 flex flex-col px-5 pt-6 pb-6">
+        <div className="flex items-center justify-between mb-6 shrink-0">
           <button onClick={onBack} className="w-fit">
             <ArrowLeft size={24} className="text-gray-900" />
           </button>
-          <button onClick={() => setShowBulkAdd(true)} className="bg-green-800 text-white p-2.5 rounded-xl">
+          <button onClick={() => setShowBulkAdd(true)} className="bg-green-800 text-white p-2.5 rounded-xl shrink-0">
             <Plus size={20} />
           </button>
         </div>
 
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">{t("animal_title")}</h1>
-        <p className="text-sm text-gray-500 mb-4">{t("animal_subtitle")}</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1 shrink-0">{t("animal_title")}</h1>
+        <p className="text-sm text-gray-500 mb-4 shrink-0">{t("animal_subtitle")}</p>
 
-        <div className="relative mb-5">
+        <div className="relative mb-5 shrink-0">
           <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             type="text"
@@ -204,7 +204,7 @@ export default function AnimalManagement({ onBack }: { onBack: () => void }) {
           />
         </div>
 
-        <div className="flex bg-gray-100 rounded-xl p-1 mb-5">
+        <div className="flex bg-gray-100 rounded-xl p-1 mb-5 shrink-0">
           <button
             onClick={() => setActiveTab("individual")}
             className={`flex-1 py-2.5 text-sm font-bold rounded-lg transition-colors ${
@@ -224,7 +224,7 @@ export default function AnimalManagement({ onBack }: { onBack: () => void }) {
         </div>
 
         {activeTab === "individual" ? (
-          <div className="space-y-3 flex-1 overflow-y-auto">
+          <div className="space-y-3 flex-1 overflow-y-auto min-h-0">
             {animals.map((animal) => (
               <button
                 key={animal.id}
@@ -250,7 +250,7 @@ export default function AnimalManagement({ onBack }: { onBack: () => void }) {
             ))}
           </div>
         ) : (
-          <div className="space-y-3 flex-1 overflow-y-auto">
+          <div className="space-y-3 flex-1 overflow-y-auto min-h-0">
             {batchGroups.map((group, i) => (
               <div
                 key={i}
